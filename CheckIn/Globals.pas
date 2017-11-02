@@ -37,7 +37,7 @@ resourcestring
 
   PUBRKEY_PGP = 'i:\cibank\pgp\keys\pubr%s.pgp';
   SECRKEY_PGP = 'i:\cibank\pgp\keys\secrbank.pgp';
-  SECRPASS = 'lexmark';
+  SECRPASS = '***';
 
   LastKnownGoodVersion = '06.01.2004';
   LastKnownGoodVer = '11';
@@ -107,10 +107,10 @@ type
     2009}
 
     //2009
-    OpKind: string; //Вид операции
+    OpKind: string; //Р’РёРґ РѕРїРµСЂР°С†РёРё
 
     //2013
-    PaytCondition: string; //Условие оплаты ПТ (1 или 2)
+    PaytCondition: string; //РЈСЃР»РѕРІРёРµ РѕРїР»Р°С‚С‹ РџРў (1 РёР»Рё 2)
   end;
 
 var
@@ -142,7 +142,7 @@ initialization
     end
     else
     begin
-      MessageDlg('Справочник банков подключить не удалось!', mtWarning, [mbOk], 0);
+      MessageDlg('РЎРїСЂР°РІРѕС‡РЅРёРє Р±Р°РЅРєРѕРІ РїРѕРґРєР»СЋС‡РёС‚СЊ РЅРµ СѓРґР°Р»РѕСЃСЊ!', mtWarning, [mbOk], 0);
       CheckBIC := False;
     end;
 

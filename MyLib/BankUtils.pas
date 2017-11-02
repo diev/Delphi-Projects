@@ -88,7 +88,7 @@ var
       end;
       Inc(I);
       if I = Count then
-        //if YesNoBox('Не удается записать в %s'#10'Пытаться ещё?', [FileName]) then
+        //if YesNoBox('РќРµ СѓРґР°РµС‚СЃСЏ Р·Р°РїРёСЃР°С‚СЊ РІ %s'#10'РџС‹С‚Р°С‚СЊСЃСЏ РµС‰С‘?', [FileName]) then
         //  I := 0
         //else
           Exit;

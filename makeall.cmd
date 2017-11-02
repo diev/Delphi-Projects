@@ -3,20 +3,20 @@ rem chcp 1251
 
 echo ***
 echo ***
-echo *** äÆ¨Ø®´ÔÊ®Ô ·Ø®·™† Ø‡Æ•™‚Æ¢
+echo *** –ö–æ–º–ø–∏–ª—è—Ü–∏—è —Å–ø–∏—Å–∫–∞ –ø—Ä–æ–µ–∫—Ç–æ–≤
 echo ***
 echo ***
 
 set home=%~dp0
 set path=d9u1\bin";%path%
 
-set CompanyName=áÄé ëàíà àçÇÖëí ÅÄçä
+set CompanyName=–ó–ê–û –°–ò–¢–ò –ò–ù–í–ï–°–¢ –ë–ê–ù–ö
 set FileVersion=4.0.0.0
 set FileDescription=none
-set ProductName=Ä¢‚Æ¨†‚®ß†Ê®Ô Å†≠™†
+set ProductName=–ê–≤—Ç–æ–º–∞—Ç–∏–∑–∞—Ü–∏—è –ë–∞–Ω–∫–∞
 set ProductVersion=4.0.0.0
 
-rem Ø•‡•Á•≠Ï ·Ø®·™Æ¢
+rem –ø–µ—Ä–µ—á–µ–Ω—å —Å–ø–∏—Å–∫–æ–≤
 set ListEnum=%2
 
 set ExePath=%1\exe
@@ -39,20 +39,20 @@ if not exist %ExePath% md %ExePath%
 if not exist %ResSubDir% md %ResSubDir%
 if not exist %DcuSubDir% md %DcuSubDir%
 if not exist %HelpSubDir% md %HelpSubDir%
-rem ™Æ¨Ø®´ÔÊ®Ô Ø‡Æ•™‚†
+rem –∫–æ–º–ø–∏–ª—è—Ü–∏—è –ø—Ä–æ–µ–∫—Ç–∞
 
-rem ‡†ß°Æ‡ Ø•‡•Á≠Ô ·Ø®·™Æ¢ ‰†©´Æ¢ ·Ø®·™Æ¢
+rem —Ä–∞–∑–±–æ—Ä –ø–µ—Ä–µ—á–Ω—è —Å–ø–∏—Å–∫–æ–≤ —Ñ–∞–π–ª–æ–≤ —Å–ø–∏—Å–∫–æ–≤
 for /f "eol=#" %%f in (%ListEnum%) do @call :compileenum %%f
 
-rem äÆØ®‡Æ¢†≠®• ·™Æ¨Ø®´®‡Æ¢†≠≠ÎÂ ‰†©´Æ¢ ·Ø‡†¢™®
-echo äÆØ®‡Æ¢†≠®• ‰†©´Æ¢ ·Ø‡†¢™®
+rem –ö–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ —Å–∫–æ–º–ø–∏–ª–∏—Ä–æ–≤–∞–Ω–Ω—ã—Ö —Ñ–∞–π–ª–æ–≤ —Å–ø—Ä–∞–≤–∫–∏
+echo –ö–æ–ø–∏—Ä–æ–≤–∞–Ω–∏–µ —Ñ–∞–π–ª–æ–≤ —Å–ø—Ä–∞–≤–∫–∏
 rem copy p:\budget32\htmlhelp\*.chm %HelpSubDir%\
 
 goto :eof
 
 :compileenum
 echo ***
-echo *** Æ°‡†°†‚Î¢†•‚·Ô ·Ø®·Æ™: %1
+echo *** –æ–±—Ä–∞–±–∞—Ç—ã–≤–∞–µ—Ç—Å—è —Å–ø–∏—Å–æ–∫: %1
 echo ***
 for /f "eol=# delims=; tokens=1*" %%a in (%1) do @call :compile %%a "%%b"
 
@@ -62,7 +62,7 @@ goto :eof
 
 rem ***************************************************************
 rem ***************************************************************
-rem ************ äÆ¨Ø®´ÔÊ®Ô ‚•™„È•£Æ ‰†©´†    *********************
+rem ************ –ö–æ–º–ø–∏–ª—è—Ü–∏—è —Ç–µ–∫—É—â–µ–≥–æ —Ñ–∞–π–ª–∞    *********************
 rem ***************************************************************
 rem ***************************************************************
 :compile
@@ -75,7 +75,7 @@ set FileDescription=%FileDescription:   =%
 echo %FileDescription%
 
 set error=0
-rem ‡†ßÆ°‡†‚Ï ®¨Ô ‰†©´†
+rem —Ä–∞–∑–æ–±—Ä–∞—Ç—å –∏–º—è —Ñ–∞–π–ª–∞
 set projdir=%~p1
 set projname=%~nx1
 set projname=%~nx1
@@ -83,7 +83,7 @@ set projext=%~x1
 
 pushd %projdir%
 
-rem ÆØ‡•§•´®‚Ï ‚®Ø ™Æ¨Ø®´ÔÊ®®
+rem –æ–ø—Ä–µ–¥–µ–ª–∏—Ç—å —Ç–∏–ø –∫–æ–º–ø–∏–ª—è—Ü–∏–∏
 
 set LogFile=%~n1.log
 if exist %LogFile% del %LogFile%>nul
@@ -93,7 +93,7 @@ echo %1
 if %~x1==.dpr goto :dpr
 if %~x1==.rc goto :rc
 if %~x1==.hhp goto :hhp
-echo äÆ¨Ø®´Ô‚Æ‡ ≠• ≠†ß≠†Á•≠ %1
+echo –ö–æ–º–ø–∏–ª—è—Ç–æ—Ä –Ω–µ –Ω–∞–∑–Ω–∞—á–µ–Ω %1
 goto :quit
 
 :dpr
@@ -124,7 +124,7 @@ goto :quit
 
 rem ***************************************************************
 rem ***************************************************************
-rem ************ é°‡†°Æ‚™† ÆË®°Æ™             *********************
+rem ************ –û–±—Ä–∞–±–æ—Ç–∫–∞ –æ—à–∏–±–æ–∫             *********************
 rem ***************************************************************
 rem ***************************************************************
 :checklog
@@ -173,7 +173,7 @@ echo             VALUE "OriginalFilename", "\0","\0","\0","\0","\0","\0","\0","\
 echo             VALUE "ProductName", "%ProductName%\0","\0","\0","\0","\0","\0","\0","\0"
 echo             VALUE "ProductVersion", "%ProductVersion%\0","\0","\0","\0","\0"
 echo             VALUE "Comments", "\0"
-echo             VALUE "Ñ†‚† ™Æ¨Ø®´ÔÊ®®", "%CompileDate%"
+echo             VALUE "–î–∞—Ç–∞ –∫–æ–º–ø–∏–ª—è—Ü–∏–∏", "%CompileDate%"
 echo         END
 echo     END
 echo     BLOCK "VarFileInfo"

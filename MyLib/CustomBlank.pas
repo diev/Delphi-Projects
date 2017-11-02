@@ -43,7 +43,7 @@ type
     procedure EndDoc;
     procedure DrawPrinterPage;
     procedure Preview;
-    procedure Print(NumCopies: Integer = 1; const DocTitle: string = '¡Î‡ÌÍ');
+    procedure Print(NumCopies: Integer = 1; const DocTitle: string = '–ë–ª–∞–Ω–∫');
     procedure DrawRulers;
     procedure SaveImage(const FileName: string);
     constructor Create; virtual;
@@ -276,7 +276,7 @@ begin
   end;
 end;
 
-procedure TCustomBlank.Print(NumCopies: Integer = 1; const DocTitle: string = '¡Î‡ÌÍ');
+procedure TCustomBlank.Print(NumCopies: Integer = 1; const DocTitle: string = '–ë–ª–∞–Ω–∫');
 begin
   Printer.Title := DocTitle;
   Printer.BeginDoc;

@@ -25,7 +25,7 @@ begin
 
     {01} Result := RDateToS(DocDate) + '^';
     {02} Result := Result + DocNo + '^';
-    {03} Result := Result + OpKind + '^'; //01 - œœ, 02 - œ“, 06 - »œ
+    {03} Result := Result + OpKind + '^'; //01 - –ü–ü, 02 - –ü–¢, 06 - –ò–ü
     {04} {if local then
            Result := Result + 'C^'
          else}
@@ -39,7 +39,7 @@ begin
          else
            Result := Result + '802^';
     {10} Result := Result + '4^';
-         {if OpKind = '02' then //2009 - œ“
+         {if OpKind = '02' then //2009 - –ü–¢
            Result := Result + '1^'
          else
            Result := Result + '4^';}
@@ -109,7 +109,7 @@ begin
          else if AnsiStartsStr('0440', BIC2) then //B
            T := 'SM2'
          else //C
-           T := '›';
+           T := '–≠';
            {
                use (cWorkDir + 'bnkseek') shared read alias 'bnkseek' new
                //set index to bnkseek
@@ -117,15 +117,15 @@ begin
                seek (bic2)
                if found()
                    if bnkseek->UER = "1" //C
-                      t = '›'
+                      t = '–≠'
                    elseif bnkseek->UER = "3"
-                      t = '›'
+                      t = '–≠'
                    else
                       t = ' ' //P
                    endif
                else
-                   t = '›'
-                   alert('¡‡ÌÍ '+bic2+' ÌÂ Ì‡È‰ÂÌ!')
+                   t = '–≠'
+                   alert('–ë–∞–Ω–∫ '+bic2+' –Ω–µ –Ω–∞–π–¥–µ–Ω!')
                endif
                close bnkseek
            ]
@@ -142,7 +142,7 @@ begin
          else
            Result := Result + '555^';
          2009}
-         if OpKind = '01' then //2009 - œœ
+         if OpKind = '01' then //2009 - –ü–ü
            Result := Result + '26^'
          else
            Result := Result + '5^';
@@ -163,7 +163,7 @@ begin
     {65} Result := Result + '^';
     {66} Result := Result + '^';
     {67} Result := Result + '^';
-    {68} if OpKind = '02' then //2013 - œ“
+    {68} if OpKind = '02' then //2013 - –ü–¢
            Result := Result + AnsiChar(222) + 'PaytCondition:' + PaytCondition + '^'
          else
            Result := Result + '^';

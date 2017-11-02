@@ -44,7 +44,7 @@ begin
 
       CheckMode := Unix;
       AppendMessage(BankierUniString + #10, UNITEXT);
-      //AppendLogMessage('%s добавлен в Банкир', [FileNameExt]);
+      //AppendLogMessage('%s РґРѕР±Р°РІР»РµРЅ РІ Р‘Р°РЅРєРёСЂ', [FileNameExt]);
       S := Format('%-13s', [FileNameExt]);
       AppendLogMessage(S);
       AppendLogMessage(S, RepFileName);
@@ -66,8 +66,8 @@ begin
 
       CheckMode := Unix;
       AppendMessage(BankierUniString + #10, UNITEXT);
-      //AppendLogMessage('%s добавлен в Банкир', [FileNameExt]);
-      S := Format('%-13s догружен', [FileNameExt]);
+      //AppendLogMessage('%s РґРѕР±Р°РІР»РµРЅ РІ Р‘Р°РЅРєРёСЂ', [FileNameExt]);
+      S := Format('%-13s РґРѕРіСЂСѓР¶РµРЅ', [FileNameExt]);
       AppendLogMessage(S);
       //AppendLogMessage(S, RepFileName);
       Halt(0);
@@ -75,7 +75,7 @@ begin
     2009}
 
     if ParamCount <> 2 then
-      raise Exception.Create('Нет 2 параметров: файл/маска и log!');
+      raise Exception.Create('РќРµС‚ 2 РїР°СЂР°РјРµС‚СЂРѕРІ: С„Р°Р№Р»/РјР°СЃРєР° Рё log!');
 
 //    if AnsiContainsText(InFile, '*') or
 //       AnsiContainsText(InFile, '?') then
@@ -111,10 +111,10 @@ begin
               if not RenameFile(InFileName, S) then
               begin
                 if not DeleteFile(InFileName) then
-                  Exception.CreateFmt('Не удалить загруженный файл %s', [InFileName]);
+                  Exception.CreateFmt('РќРµ СѓРґР°Р»РёС‚СЊ Р·Р°РіСЂСѓР¶РµРЅРЅС‹Р№ С„Р°Р№Р» %s', [InFileName]);
               end
               else
-                Exception.CreateFmt('Не вынести загруженный файл %s в %s', [InFileName, S]);
+                Exception.CreateFmt('РќРµ РІС‹РЅРµСЃС‚Рё Р·Р°РіСЂСѓР¶РµРЅРЅС‹Р№ С„Р°Р№Р» %s РІ %s', [InFileName, S]);
             end;
           //2009
           //end;
@@ -135,10 +135,10 @@ begin
               if RenameFile(InFileName, FilePath + 'BAK\o' + Copy(FileNameExt, 2, 255)) then
               begin
                 //if not DeleteFile(InFileName) then
-                  //Exception.CreateFmt('Не удалить загруженный файл %s', [InFileName]);
+                  //Exception.CreateFmt('РќРµ СѓРґР°Р»РёС‚СЊ Р·Р°РіСЂСѓР¶РµРЅРЅС‹Р№ С„Р°Р№Р» %s', [InFileName]);
               end
               else
-                Exception.CreateFmt('Не вынести в BAK загруженный файл %s', [InFileName]);
+                Exception.CreateFmt('РќРµ РІС‹РЅРµСЃС‚Рё РІ BAK Р·Р°РіСЂСѓР¶РµРЅРЅС‹Р№ С„Р°Р№Р» %s', [InFileName]);
             except
               on E: Exception do
               begin
@@ -157,14 +157,14 @@ begin
         FindClose(SearchRec);
       end
       else //if not FileExists(InFileName) then
-        raise Exception.CreateFmt('Нет исходных файлов - %s', [ParamStr(1)]);
+        raise Exception.CreateFmt('РќРµС‚ РёСЃС…РѕРґРЅС‹С… С„Р°Р№Р»РѕРІ - %s', [ParamStr(1)]);
     end;
 
   {
   if CheckPgp then
     InFileName := PGPOutPath + InFileName
   else
-    raise Exception.Create('Файл не имеет подписи!');
+    raise Exception.Create('Р¤Р°Р№Р» РЅРµ РёРјРµРµС‚ РїРѕРґРїРёСЃРё!');
   }
 
   except
@@ -185,7 +185,7 @@ begin
 
       Unix:
         begin
-          AppendLogMessage('%-13s НЕ добавлен в Банкир!', [FileNameExt]);
+          AppendLogMessage('%-13s РќР• РґРѕР±Р°РІР»РµРЅ РІ Р‘Р°РЅРєРёСЂ!', [FileNameExt]);
           Halt(0);
         end;
 

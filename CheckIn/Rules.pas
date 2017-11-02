@@ -5,10 +5,10 @@ unit Rules;
 interface
 
 const
-  DAYS_AFTER = 10; //разрешено назад
-  DAYS_BEFORE = 5; //разрешено вперед
+  DAYS_AFTER = 10; //СЂР°Р·СЂРµС€РµРЅРѕ РЅР°Р·Р°Рґ
+  DAYS_BEFORE = 5; //СЂР°Р·СЂРµС€РµРЅРѕ РІРїРµСЂРµРґ
 
-  CUTLENGTH = 30; //Назначение и пр. в "CUT LENGTH..."
+  CUTLENGTH = 30; //РќР°Р·РЅР°С‡РµРЅРёРµ Рё РїСЂ. РІ "CUT LENGTH..."
 
 resourcestring
   {2009}
@@ -16,7 +16,7 @@ resourcestring
   {2009}
 
   REGEXP_VO       = '^\{VO\d{5}(PS\d{8}/3194/0000/\d/0|)\}';
-  REGEXP_VO_SCAN  = '^[\{\[\(]V[OО0]\d{5}([PР]S\d{8}/3194/0000/\d/0|)[\}\]\)]'; //RusLat!
+  REGEXP_VO_SCAN  = '^[\{\[\(]V[OРћ0]\d{5}([PР ]S\d{8}/3194/0000/\d/0|)[\}\]\)]'; //RusLat!
   REGEXP_LS_VO    = '^(30122|30123|30230|30231|40807|40813|40814|40815|40818|40819|40820)';
 
   REGEXP_INN      = '^(\d{10}|\d{12}|0)$';
@@ -27,21 +27,21 @@ resourcestring
   REGEXP_KPP      = '^(\d{9}|0)$';
   REGEXP_BIC      = '^04\d{7}$';
   REGEXP_LS       = '^\d{5}810\d{12}$';
-  REGEXP_QUE      = '^[1-5]$'; //с 14.12.2013
+  REGEXP_QUE      = '^[1-5]$'; //СЃ 14.12.2013
 
   {101}REGEXP_SS       = '^\d{2}$'; {'^0[1-8]$';}
   {104}REGEXP_NAL1     = '^(\d{20})$';
        REGEXP_NAL1T    = '^\d{1,20}$';
   {105}REGEXP_NAL2     = '^\d{1,11}$';
-  {106}REGEXP_NAL3     = '^(ТП|ЗД|БФ|ТР|РС|ОТ|РТ|ВУ|ПР|АП|АР)$';
-       REGEXP_NAL3T    = '^(ДЕ|ПО|КВ|КТ|ИД|ИП|ТУ|БД|ИН|КП)$'; //таможня с 2010
-  {107}REGEXP_NAL4     = '^((Д1|Д2|Д3|МС|КВ|ПЛ|ГД|\d{2})\.\d{2}\.\d{4}|0)$';
-       REGEXP_NAL4_Q   = '^(КВ\.01|КВ\.02|КВ\.03|КВ\.04|ПЛ\.01|ПЛ\.02|ГД\.00)';
-       REGEXP_NAL4T    = '^.{1,8}$'; //таможня с 2010
+  {106}REGEXP_NAL3     = '^(РўРџ|Р—Р”|Р‘Р¤|РўР |Р РЎ|РћРў|Р Рў|Р’РЈ|РџР |РђРџ|РђР )$';
+       REGEXP_NAL3T    = '^(Р”Р•|РџРћ|РљР’|РљРў|РР”|РРџ|РўРЈ|Р‘Р”|РРќ|РљРџ)$'; //С‚Р°РјРѕР¶РЅСЏ СЃ 2010
+  {107}REGEXP_NAL4     = '^((Р”1|Р”2|Р”3|РњРЎ|РљР’|РџР›|Р“Р”|\d{2})\.\d{2}\.\d{4}|0)$';
+       REGEXP_NAL4_Q   = '^(РљР’\.01|РљР’\.02|РљР’\.03|РљР’\.04|РџР›\.01|РџР›\.02|Р“Р”\.00)';
+       REGEXP_NAL4T    = '^.{1,8}$'; //С‚Р°РјРѕР¶РЅСЏ СЃ 2010
   {108}REGEXP_NAL5     = '^.{1,15}$';
-  {109}REGEXP_NAL6     = '^(\d{2}\.\d{2}\.\d{4}|0)$'; //дата или 0
-  {110}REGEXP_NAL7     = '^(НС|ПЛ|ГП|ВЗ|АВ|ПЕ|ПЦ|СА|АШ|ИШ)$';
-       REGEXP_NAL7T    = '^(ШТ|ЗД|ПЕ)$'; //таможня с 2010
+  {109}REGEXP_NAL6     = '^(\d{2}\.\d{2}\.\d{4}|0)$'; //РґР°С‚Р° РёР»Рё 0
+  {110}REGEXP_NAL7     = '^(РќРЎ|РџР›|Р“Рџ|Р’Р—|РђР’|РџР•|РџР¦|РЎРђ|РђРЁ|РРЁ)$';
+       REGEXP_NAL7T    = '^(РЁРў|Р—Р”|РџР•)$'; //С‚Р°РјРѕР¶РЅСЏ СЃ 2010
 
   procedure VerifyRules;
 
@@ -88,7 +88,7 @@ var
 
       if CheckMode = Dbf then
       2009}
-        if not InputQuery(Format('Уточните N %s на %s', [DocNo, Sum]), Ask, Field) then
+        if not InputQuery(Format('РЈС‚РѕС‡РЅРёС‚Рµ N %s РЅР° %s', [DocNo, Sum]), Ask, Field) then
           raise Exception.Create(Log);
     end;
   end;
@@ -108,29 +108,29 @@ var
   begin
     if MinLen > 0 then
       while Length(Field) < MinLen do
-        Problem(Field, 'короче %d символов', [MinLen]);
+        Problem(Field, 'РєРѕСЂРѕС‡Рµ %d СЃРёРјРІРѕР»РѕРІ', [MinLen]);
     if MaxLen > 0 then
       while Length(Field) > MaxLen do
-        Problem(Field, 'длиннее %d символов', [MaxLen]);
+        Problem(Field, 'РґР»РёРЅРЅРµРµ %d СЃРёРјРІРѕР»РѕРІ', [MaxLen]);
     while AnsiContainsStr(Field, '^') do
-      Problem(Field, 'содержит ^');
+      Problem(Field, 'СЃРѕРґРµСЂР¶РёС‚ ^');
     while AnsiContainsStr(Field, '...') do
-      Problem(Field, 'содежит многоточие');
+      Problem(Field, 'СЃРѕРґРµР¶РёС‚ РјРЅРѕРіРѕС‚РѕС‡РёРµ');
     while Field[1] = '"' do
-      Problem(Field, 'кавычка в начале');
+      Problem(Field, 'РєР°РІС‹С‡РєР° РІ РЅР°С‡Р°Р»Рµ');
     while Field[1] = '-' do
-      Problem(Field, 'минус в начале');
+      Problem(Field, 'РјРёРЅСѓСЃ РІ РЅР°С‡Р°Р»Рµ');
   end;
 
   procedure VerifyINN(var Field: string; const LS: string);
   begin
-    ProbEx(Field, REGEXP_INN, 'не 10/12 цифр или 0');
+    ProbEx(Field, REGEXP_INN, 'РЅРµ 10/12 С†РёС„СЂ РёР»Рё 0');
 //    if ExecRegExpr(REGEXP_LS_INN12, LS) then
-//      ProbEx(Field, REGEXP_INN12, 'не 12 цифр для физ.лица');
+//      ProbEx(Field, REGEXP_INN12, 'РЅРµ 12 С†РёС„СЂ РґР»СЏ С„РёР·.Р»РёС†Р°');
     while not ValidINNKey(Field) do
-      Problem(Field, 'неправильный');
+      Problem(Field, 'РЅРµРїСЂР°РІРёР»СЊРЅС‹Р№');
     while AnsiStartsStr('40', LS) and AnsiSameStr(Field, CIBINN) do
-      Problem(Field, 'это ИНН Банка');
+      Problem(Field, 'СЌС‚Рѕ РРќРќ Р‘Р°РЅРєР°');
   end;
 
 begin
@@ -139,126 +139,126 @@ begin
     {2009
     if CheckMode = Plt then
     begin
-      RepPart := 'ВЕРСИЯ ПРОГРАММЫ';
+      RepPart := 'Р’Р•Р РЎРРЇ РџР РћР“Р РђРњРњР«';
       if Ver < StrToInt(LastKnownGoodVer) then
-        Problem(Version, 'НЕ СООТВЕТСТВУЕТ ФОРМАТУ ЦБ 2003!')
+        Problem(Version, 'РќР• РЎРћРћРўР’Р•РўРЎРўР’РЈР•Рў Р¤РћР РњРђРўРЈ Р¦Р‘ 2003!')
       else
       begin
         testDate := RStrToDate(Version);
         if testDate < RStrToDate(LastKnownGoodVersion) then
-          Problem(Version, 'обновите версию');
+          Problem(Version, 'РѕР±РЅРѕРІРёС‚Рµ РІРµСЂСЃРёСЋ');
       end;
     end; //CheckMode = Plt
     2009}
 
     //---------------------------------------------------------
-    RepPart := {3}'Номер док.';
+    RepPart := {3}'РќРѕРјРµСЂ РґРѕРє.';
       while NotDigits(DocNo) do
-        Problem(DocNo, 'не число');
+        Problem(DocNo, 'РЅРµ С‡РёСЃР»Рѕ');
       {2009
       if CheckMode = Plt then
       begin
         if not AnsiSameStr(BIC2, CIBBIC) then
         begin
           if NotIn(DocNo, 1, 999) then
-            Problem(DocNo, 'превышает 999 в другой банк');
+            Problem(DocNo, 'РїСЂРµРІС‹С€Р°РµС‚ 999 РІ РґСЂСѓРіРѕР№ Р±Р°РЅРє');
           if AnsiEndsStr('000', DocNo) then
-            Problem(DocNo, 'на конце 000 в другой банк');
+            Problem(DocNo, 'РЅР° РєРѕРЅС†Рµ 000 РІ РґСЂСѓРіРѕР№ Р±Р°РЅРє');
         end;
       end; //CheckMode = Plt
       2009}
 
-    RepPart := {4}'Дата док.';
-      if (OpKind = '01') then //Платежное поручение и только
+    RepPart := {4}'Р”Р°С‚Р° РґРѕРє.';
+      if (OpKind = '01') then //РџР»Р°С‚РµР¶РЅРѕРµ РїРѕСЂСѓС‡РµРЅРёРµ Рё С‚РѕР»СЊРєРѕ
         while NotIn(DocDate, Now - DAYS_AFTER, Now + DAYS_BEFORE) do
-          Problem(DocDate, 'не в -%d..+%d дней', [DAYS_AFTER, DAYS_BEFORE]);
+          Problem(DocDate, 'РЅРµ РІ -%d..+%d РґРЅРµР№', [DAYS_AFTER, DAYS_BEFORE]);
 
-    RepPart := {7}'Сумма плат.';
+    RepPart := {7}'РЎСѓРјРјР° РїР»Р°С‚.';
       while NotSum(Sum) do
-        Problem(Sum, 'не сумма');
+        Problem(Sum, 'РЅРµ СЃСѓРјРјР°');
 
-    RepPart := {21}'Очер. плат.';
+    RepPart := {21}'РћС‡РµСЂ. РїР»Р°С‚.';
       if
         {2009
         (CheckMode = Dbf) and
         2009}
         (Length(Queue) > 1) then
         Queue := AnsiRightStr(Queue, 1);
-      ProbEx(Queue, REGEXP_QUE, 'не 1..5');
+      ProbEx(Queue, REGEXP_QUE, 'РЅРµ 1..5');
 
     //---------------------------------------------------------
-    RepPart := {60}'ИНН плат.';
+    RepPart := {60}'РРќРќ РїР»Р°С‚.';
       VerifyINN(INN, LS);
 
-    RepPart := {102}'КПП плат.';
-      ProbEx(KPP, REGEXP_KPP, 'не 9 цифр или 0');
+    RepPart := {102}'РљРџРџ РїР»Р°С‚.';
+      ProbEx(KPP, REGEXP_KPP, 'РЅРµ 9 С†РёС„СЂ РёР»Рё 0');
 
-    RepPart := {9}'Счет плат.';
-      ProbEx(LS, REGEXP_LS, 'не 20 цифр');
+    RepPart := {9}'РЎС‡РµС‚ РїР»Р°С‚.';
+      ProbEx(LS, REGEXP_LS, 'РЅРµ 20 С†РёС„СЂ');
       {2009
       if CheckMode = Plt then
       begin
         testInt := StrToIntDef(AnsiRightStr(LS, 4), -2);
         if testInt <> StrToIntDef(FileExt, -1) then
-          Problem(LS, 'не соответствует файлу доставки');
+          Problem(LS, 'РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ С„Р°Р№Р»Сѓ РґРѕСЃС‚Р°РІРєРё');
       end;
       2009}
       while not ValidLSKey(CIBBIC, LS) do
-        Problem(LS, 'не соответствует ключу БИК');
+        Problem(LS, 'РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РєР»СЋС‡Сѓ Р‘РРљ');
 
     //---------------------------------------------------------
     {2009
     if CheckMode = Plt then
     begin
-      RepPart := {8]'Плательщик';
+      RepPart := {8]'РџР»Р°С‚РµР»СЊС‰РёРє';
         VerifyText(Name, 3, 160);
 
-      RepPart := 'Файл не соответствует';           /////////////////////////////////
+      RepPart := 'Р¤Р°Р№Р» РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚';           /////////////////////////////////
         if not AnsiEndsStr(FileExt, LS) then
-          Problem(FileExt, 'иной счет');
+          Problem(FileExt, 'РёРЅРѕР№ СЃС‡РµС‚');
         if not AnsiSameStr(AnsiMidStr(FileNameExt, 2, 1), AnsiRightStr(DocDate, 1)) then
-          Problem(DocDate, 'иной год');
+          Problem(DocDate, 'РёРЅРѕР№ РіРѕРґ');
         if not AnsiSameText(AnsiMidStr(FileNameExt, 3, 1), To36(AnsiMidStr(DocDate, 4, 2))) then
-          Problem(DocDate, 'иной месяц');
+          Problem(DocDate, 'РёРЅРѕР№ РјРµСЃСЏС†');
         if not AnsiSameStr(AnsiMidStr(FileNameExt, 4, 2), AnsiLeftStr(DocDate, 2)) then
-          Problem(DocDate, 'иной день');
+          Problem(DocDate, 'РёРЅРѕР№ РґРµРЅСЊ');
         testInt := StrToIntDef(AnsiMidStr(FileNameExt, 6, 3), 0);
         if (testInt mod 1000) <> (StrToInt(DocNo) mod 1000) then
-          Problem(DocNo, 'иной номер');
+          Problem(DocNo, 'РёРЅРѕР№ РЅРѕРјРµСЂ');
     end; //CheckMode = Plt
     2009}
 
     //---------------------------------------------------------
-    RepPart := {16}'Получатель';
+    RepPart := {16}'РџРѕР»СѓС‡Р°С‚РµР»СЊ';
       VerifyText(Name2, 3, 160);
 
-    RepPart := {61}'ИНН получ.';
+    RepPart := {61}'РРќРќ РїРѕР»СѓС‡.';
       VerifyINN(INN2, LS2);
 
-    RepPart := {103}'КПП получ.';
-      ProbEx(KPP2, REGEXP_KPP, 'не 9 цифр или 0');
+    RepPart := {103}'РљРџРџ РїРѕР»СѓС‡.';
+      ProbEx(KPP2, REGEXP_KPP, 'РЅРµ 9 С†РёС„СЂ РёР»Рё 0');
 
-    RepPart := {14}'БИК банка получ.';
-      ProbEx(BIC2, REGEXP_BIC, 'не 9 цифр');
+    RepPart := {14}'Р‘РРљ Р±Р°РЅРєР° РїРѕР»СѓС‡.';
+      ProbEx(BIC2, REGEXP_BIC, 'РЅРµ 9 С†РёС„СЂ');
 
-    RepPart := {17}'Счет получ.';
-      ProbEx(LS2, REGEXP_LS, 'не 20 цифр');
+    RepPart := {17}'РЎС‡РµС‚ РїРѕР»СѓС‡.';
+      ProbEx(LS2, REGEXP_LS, 'РЅРµ 20 С†РёС„СЂ');
       while not ValidLSKey(BIC2, LS2) do
-        Problem(LS2, 'не соответствует ключу БИК');
+        Problem(LS2, 'РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ РєР»СЋС‡Сѓ Р‘РРљ');
 
     //---------------------------------------------------------
     {2009
     if CheckBIC then
     begin
-      RepPart := {13]'Банк получателя';
+      RepPart := {13]'Р‘Р°РЅРє РїРѕР»СѓС‡Р°С‚РµР»СЏ';
       if BnkSeek.FindRec('NEWNUM', BIC2) then
       begin
-        //RepPart := {15] 'К/С банка получателя';
+        //RepPart := {15] 'Рљ/РЎ Р±Р°РЅРєР° РїРѕР»СѓС‡Р°С‚РµР»СЏ';
         {
         testStr := BnkSeek.Value('KSNP');
         if Length(KS2) > 0 then
           while not AnsiSameStr(KS2, testStr) do
-            Problem(KS2, 'не совпадает со Справочником банков')
+            Problem(KS2, 'РЅРµ СЃРѕРІРїР°РґР°РµС‚ СЃРѕ РЎРїСЂР°РІРѕС‡РЅРёРєРѕРј Р±Р°РЅРєРѕРІ')
         else
           KS2 := testStr;
         ]
@@ -266,46 +266,46 @@ begin
         testStr := BnkSeek.Value('REAL');
         if Length(testStr) > 0 then
         begin
-          if AnsiContainsText('ИЗМР,ЗСЧТ', testStr) and
+          if AnsiContainsText('РР—РњР ,Р—РЎР§Рў', testStr) and
             (BnkSeek.Value('DATE_CH') < RDateToS(Now)) then
-            Problem(BIC2, 'запрещен к расчетам!');
+            Problem(BIC2, 'Р·Р°РїСЂРµС‰РµРЅ Рє СЂР°СЃС‡РµС‚Р°Рј!');
         end;
       end
       else
-        Problem(BIC2, 'не найден в Справочнике банков');
+        Problem(BIC2, 'РЅРµ РЅР°Р№РґРµРЅ РІ РЎРїСЂР°РІРѕС‡РЅРёРєРµ Р±Р°РЅРєРѕРІ');
     end; //CheckBIC
     2009}
 
     //---------------------------------------------------------
-    RepPart := {101}'Статус налогоплательщика';
+    RepPart := {101}'РЎС‚Р°С‚СѓСЃ РЅР°Р»РѕРіРѕРїР»Р°С‚РµР»СЊС‰РёРєР°';
       if NotIn(Queue, '15') then
         while Length(SS) = 0 do
-          Problem(SS, 'пуст при очер. не 5');
+          Problem(SS, 'РїСѓСЃС‚ РїСЂРё РѕС‡РµСЂ. РЅРµ 5');
       if AnsiStartsStr('40101', LS2) then
         while Length(SS) = 0 do
-          Problem(SS, 'пуст для бюдж. счета 40101');
+          Problem(SS, 'РїСѓСЃС‚ РґР»СЏ Р±СЋРґР¶. СЃС‡РµС‚Р° 40101');
       if AnsiStartsStr('40314', LS2) then
         while Length(SS) = 0 do
-          Problem(SS, 'пуст для тамож. счета 40314');
+          Problem(SS, 'РїСѓСЃС‚ РґР»СЏ С‚Р°РјРѕР¶. СЃС‡РµС‚Р° 40314');
 
     if Length(SS) > 0 then
     begin
-      ProbEx(SS, REGEXP_SS, 'не 01..20'); //2010
+      ProbEx(SS, REGEXP_SS, 'РЅРµ 01..20'); //2010
 
-      RepPart := {104}'Код бюдж. классификации';
+      RepPart := {104}'РљРѕРґ Р±СЋРґР¶. РєР»Р°СЃСЃРёС„РёРєР°С†РёРё';
         if AnsiStartsStr('40101', LS2) then
-          ProbEx(NAL1, REGEXP_NAL1, 'не 20 цифр');
+          ProbEx(NAL1, REGEXP_NAL1, 'РЅРµ 20 С†РёС„СЂ');
         if AnsiStartsStr('40314', LS2) then
-          ProbEx(NAL1, REGEXP_NAL1T, 'не цифры');
+          ProbEx(NAL1, REGEXP_NAL1T, 'РЅРµ С†РёС„СЂС‹');
 
-      RepPart := {105}'Код ОКАТО';
-        ProbEx(NAL2, REGEXP_NAL2, 'не цифры');
+      RepPart := {105}'РљРѕРґ РћРљРђРўРћ';
+        ProbEx(NAL2, REGEXP_NAL2, 'РЅРµ С†РёС„СЂС‹');
 
-      RepPart := {106}'Основание платежа';
-        //2009 ProbEx(NAL3, REGEXP_NAL3, 'не 2 буквы');
+      RepPart := {106}'РћСЃРЅРѕРІР°РЅРёРµ РїР»Р°С‚РµР¶Р°';
+        //2009 ProbEx(NAL3, REGEXP_NAL3, 'РЅРµ 2 Р±СѓРєРІС‹');
         //2010
         if Length(NAL3) = 0 then
-          Problem(NAL3, 'пусто и не 0');
+          Problem(NAL3, 'РїСѓСЃС‚Рѕ Рё РЅРµ 0');
         if NAL3 = '0' then
           TaxMode := Zero
         else if ExecRegExpr(REGEXP_NAL3, NAL3) then
@@ -313,11 +313,11 @@ begin
         else if ExecRegExpr(REGEXP_NAL3T, NAL3) then
           TaxMode := Customs
         else
-          Problem(NAL3, 'не 2 буквы');
+          Problem(NAL3, 'РЅРµ 2 Р±СѓРєРІС‹');
 
       if TaxMode = Budget then
       begin
-      RepPart := {107}'Налог. период';
+      RepPart := {107}'РќР°Р»РѕРі. РїРµСЂРёРѕРґ';
         {2009
         if CheckMode = Dbf then
         begin
@@ -334,7 +334,7 @@ begin
         {2009
         end;
         2009}
-        ProbEx(NAL4, REGEXP_NAL4, 'не 2 буквы или дата');
+        ProbEx(NAL4, REGEXP_NAL4, 'РЅРµ 2 Р±СѓРєРІС‹ РёР»Рё РґР°С‚Р°');
         if NAL4 <> '0' then
         begin
           if Length(NAL4) > 5 then
@@ -343,16 +343,16 @@ begin
             NAL4[6] := '.';
           end;
           case NAL4[1] of
-            'Д', 'М':
+            'Р”', 'Рњ':
               repeat
                 testStr := NAL4;
                 testStr[1] := '0';
                 testStr[2] := '1';
                 if TryStrToDate(testStr, testDate) then
                   Break;
-                Problem(NAL4, 'не типа Д или МС');
+                Problem(NAL4, 'РЅРµ С‚РёРїР° Р” РёР»Рё РњРЎ');
               until False;
-            'К', 'П', 'Г':
+            'Рљ', 'Рџ', 'Р“':
               repeat
                 if ExecRegExpr(REGEXP_NAL4_Q, NAL4) then
                 begin
@@ -364,35 +364,35 @@ begin
                   if TryStrToDate(testStr, testDate) then
                     Break;
                 end;
-                Problem(NAL4, 'не типа КВ, ПЛ или ГД');
+                Problem(NAL4, 'РЅРµ С‚РёРїР° РљР’, РџР› РёР»Рё Р“Р”');
               until False;
             else //date
               repeat
                 testStr := NAL4;
                 if TryStrToDate(testStr, testDate) then
                   Break;
-                Problem(NAL4, 'не дата');
+                Problem(NAL4, 'РЅРµ РґР°С‚Р°');
               until False;
           end;
         end;
       end
       else if TaxMode = Customs then
       begin
-      RepPart := {107}'Код тамож. органа';
+      RepPart := {107}'РљРѕРґ С‚Р°РјРѕР¶. РѕСЂРіР°РЅР°';
           if Length(NAL4) = 0 then
-            Problem(NAL4, 'пуст и не 0');
+            Problem(NAL4, 'РїСѓСЃС‚ Рё РЅРµ 0');
       end
       else {TaxMode = Zero}
       begin
-      RepPart := {107}'Поле 107';
+      RepPart := {107}'РџРѕР»Рµ 107';
           if Length(NAL4) = 0 then
-            Problem(NAL4, 'пусто и не 0');
+            Problem(NAL4, 'РїСѓСЃС‚Рѕ Рё РЅРµ 0');
       end;
 
-      RepPart := {108}'Номер налог. документа';
+      RepPart := {108}'РќРѕРјРµСЂ РЅР°Р»РѕРі. РґРѕРєСѓРјРµРЅС‚Р°';
         VerifyText(NAL5, 1, 15);
 
-      RepPart := {109}'Дата налог. документа';
+      RepPart := {109}'Р”Р°С‚Р° РЅР°Р»РѕРі. РґРѕРєСѓРјРµРЅС‚Р°';
         {2009
         if CheckMode = Dbf then
         begin
@@ -407,16 +407,16 @@ begin
         {2009
         end;
         2009}
-        ProbEx(NAL6, REGEXP_NAL6, 'не 10 знаков');
+        ProbEx(NAL6, REGEXP_NAL6, 'РЅРµ 10 Р·РЅР°РєРѕРІ');
         if NAL6 <> '0' then
           while not TryStrToDate(NAL6, testDate) do
-            Problem(NAL6, 'не дата');
+            Problem(NAL6, 'РЅРµ РґР°С‚Р°');
 
-      RepPart := {110}'Тип налог. документа';
-        //2009 ProbEx(NAL7, REGEXP_NAL7, 'не 2 буквы');
+      RepPart := {110}'РўРёРї РЅР°Р»РѕРі. РґРѕРєСѓРјРµРЅС‚Р°';
+        //2009 ProbEx(NAL7, REGEXP_NAL7, 'РЅРµ 2 Р±СѓРєРІС‹');
         //2010
         if Length(NAL7) = 0 then
-          Problem(NAL7, 'пуст и не 0');
+          Problem(NAL7, 'РїСѓСЃС‚ Рё РЅРµ 0');
         if NAL7 = '0' then
           TaxMode := Zero
         else if ExecRegExpr(REGEXP_NAL7, NAL7) then
@@ -424,11 +424,11 @@ begin
         else if ExecRegExpr(REGEXP_NAL7T, NAL7) then
           TaxMode := Customs
         else
-          Problem(NAL7, 'не 2 буквы');
+          Problem(NAL7, 'РЅРµ 2 Р±СѓРєРІС‹');
     end;
 
     //---------------------------------------------------------
-    RepPart := {24}'Назначение';
+    RepPart := {24}'РќР°Р·РЅР°С‡РµРЅРёРµ';
       VerifyText(Details, 3, 210);
       if ExecRegExpr(REGEXP_LS_VO, LS2) or
         ExecRegExpr(REGEXP_LS_VO, LS) then
@@ -456,7 +456,7 @@ begin
         {2009
         end;
         2009}
-        ProbEx(Details, REGEXP_VO, 'нет {VO и т.д.');
+        ProbEx(Details, REGEXP_VO, 'РЅРµС‚ {VO Рё С‚.Рґ.');
       end;
 
     //---------------------------------------------------------
@@ -469,7 +469,7 @@ begin
         testInt := IndexOf(testStr);
         case WRK[testInt] of
           0: //test
-            raise Exception.Create('Успешно протестирован');
+            raise Exception.Create('РЈСЃРїРµС€РЅРѕ РїСЂРѕС‚РµСЃС‚РёСЂРѕРІР°РЅ');
 
           1: //work
             begin
@@ -479,22 +479,22 @@ begin
                 testStr := Format(MAIL_ARCH, [PathYMD(-testInt)]) + FileNameExt;
                 if FileExists(testStr) then
                   if testInt = 0 then
-                    raise Exception.Create('ПОВТОРНО (сегодня)')
+                    raise Exception.Create('РџРћР’РўРћР РќРћ (СЃРµРіРѕРґРЅСЏ)')
                   else
-                    raise Exception.CreateFmt('ПОВТОРНО (%d %s назад)',
-                      [testInt, REndStr(testInt, 'день', 'дня', 'дней')]);
+                    raise Exception.CreateFmt('РџРћР’РўРћР РќРћ (%d %s РЅР°Р·Р°Рґ)',
+                      [testInt, REndStr(testInt, 'РґРµРЅСЊ', 'РґРЅСЏ', 'РґРЅРµР№')]);
               end;
               {$ENDIF]
             end;
 
           2: //blocked
-            raise Exception.Create('Приостановлен');
+            raise Exception.Create('РџСЂРёРѕСЃС‚Р°РЅРѕРІР»РµРЅ');
 
           3: //retired
-            raise Exception.Create('Искл. из системы');
+            raise Exception.Create('РСЃРєР». РёР· СЃРёСЃС‚РµРјС‹');
 
           else //unused
-            raise Exception.Create('Не обслуживается');
+            raise Exception.Create('РќРµ РѕР±СЃР»СѓР¶РёРІР°РµС‚СЃСЏ');
         end;
       end;
     end; //CheckMode = Plt

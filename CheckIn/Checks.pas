@@ -41,7 +41,7 @@ begin
   Readln(F, s);
   CloseFile(F);
   if s <> PGPSignature then
-    raise Exception.Create('Файл не имеет заголовка PGP!');
+    raise Exception.Create('Р¤Р°Р№Р» РЅРµ РёРјРµРµС‚ Р·Р°РіРѕР»РѕРІРєР° PGP!');
   Result := PGPDecodeFile(File1, File2, Pubr, SECRKEY_PGP, SECRPASS)
 end;
 2009}
@@ -115,26 +115,26 @@ begin
   Result := True;
   T := S;
   I := Length(T);
-  if I = 0 then //нет
+  if I = 0 then //РЅРµС‚
     Exit;
   if T[1] = '0' then
     if (I <> 4) or NotIn(T[2], '.,-') then
       Exit;
-  if T[1] = '-' then //отрицательная
+  if T[1] = '-' then //РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ
     Exit;
-  if T[I] = '-' then //без копеек
+  if T[I] = '-' then //Р±РµР· РєРѕРїРµРµРє
     Exit;
-  if T[I] = '=' then //что-то лишнее?
+  if T[I] = '=' then //С‡С‚Рѕ-С‚Рѕ Р»РёС€РЅРµРµ?
   begin
     Delete(T, I, 1);
     Result := NotDigits(T);
     Exit;
   end;
-  if I < 4 then //без рублей (и без =)
+  if I < 4 then //Р±РµР· СЂСѓР±Р»РµР№ (Рё Р±РµР· =)
     Exit;
-  if NotIn(T[I-2], '.,-') then //неправильный разделитель
+  if NotIn(T[I-2], '.,-') then //РЅРµРїСЂР°РІРёР»СЊРЅС‹Р№ СЂР°Р·РґРµР»РёС‚РµР»СЊ
     Exit;
-  T[I-2] := '0'; //подмена разделителя
+  T[I-2] := '0'; //РїРѕРґРјРµРЅР° СЂР°Р·РґРµР»РёС‚РµР»СЏ
   Result := NotDigits(T);
 end;
 

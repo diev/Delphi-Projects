@@ -105,14 +105,14 @@ begin
     if Copy(CIBBIC, 1, 4) = Copy(FBIC, 1, 4) then
       Result := '' //A,B
     else if (FBuffer.UER = '1') or (FBuffer.UER = '3') then
-      Result := '›ÎÂÍÚÓÌÌÓ' //C
+      Result := '–≠–ª–µ–∫—Ç—Ä–æ–Ω–Ω–æ' //C
     else
-      Result := 'œÓ˜ÚÓÈ' //P
+      Result := '–ü–æ—á—Ç–æ–π' //P
   else if FFound2 then
     if FBuffer2.POST = 'P' then
-      Result := 'œÓ˜ÚÓÈ'
+      Result := '–ü–æ—á—Ç–æ–π'
     else if FBuffer2.POST = 'C' then
-      Result := '›ÎÂÍÚÓÌÌÓ'
+      Result := '–≠–ª–µ–∫—Ç—Ä–æ–Ω–Ω–æ'
     else //A,B
       Result := ''
   else //not found
@@ -139,30 +139,30 @@ begin
       Result := ''
     else
       case StrToIntDef(FBuffer.PZN, -1) of
-        0: Result := '√– ÷ ';
-        10: Result := '– ÷ ';
-        20: Result := '¡ ';
-        21: Result := ' ¡ ';
-        22: Result := '—¡ ';
-        23: Result := '¿ ¡ ';
-        24: Result := '◊ ¡ ';
-        25: Result := ' Œœ¡ ';
-        26: Result := '¿œ¡ ';
-        30: Result := '‘¡ ';
-        31: Result := '‘ ¡ ';
-        32: Result := 'ŒÚ‰.';
-        33: Result := '‘¿ ¡ ';
-        34: Result := '‘◊ ¡ ';
-        35: Result := '‘ Œ¡ ';
-        36: Result := 'ŒÚ‰.';
-        40: Result := '÷” ';
-        50: Result := '÷’ ';
-        70: Result := ' ” ';
-        71: Result := ' À ';
-        72: Result := 'Œ–÷¡ ';
-        90: Result := 'À» ¬ ';
-        98: Result := '»— À ';
-        99: Result := 'Œ“«¬ ';
+        0: Result := '–ì–†–ö–¶ ';
+        10: Result := '–†–ö–¶ ';
+        20: Result := '–ë ';
+        21: Result := '–ö–ë ';
+        22: Result := '–°–ë ';
+        23: Result := '–ê–ö–ë ';
+        24: Result := '–ß–ö–ë ';
+        25: Result := '–ö–û–ü–ë ';
+        26: Result := '–ê–ü–ë ';
+        30: Result := '–§–ë ';
+        31: Result := '–§–ö–ë ';
+        32: Result := '–û—Ç–¥.';
+        33: Result := '–§–ê–ö–ë ';
+        34: Result := '–§–ß–ö–ë ';
+        35: Result := '–§–ö–û–ë ';
+        36: Result := '–û—Ç–¥.';
+        40: Result := '–¶–£ ';
+        50: Result := '–¶–• ';
+        70: Result := '–ö–£ ';
+        71: Result := '–ö–õ ';
+        72: Result := '–û–†–¶–ë ';
+        90: Result := '–õ–ò–ö–í ';
+        98: Result := '–ò–°–ö–õ ';
+        99: Result := '–û–¢–ó–í ';
       else
         Result := '';
       end;
@@ -191,13 +191,13 @@ begin
   if FFound then
   begin
     case StrToIntDef(FBuffer.TNP, -1) of
-      1: Result := '√.';
-      2: Result := 'œ.';
-      3: Result := '—.';
-      4: Result := 'œ√“ ';
-      5: Result := '—“-÷¿ ';
-      6: Result := '¿”À ';
-      7: Result := '–œ ';
+      1: Result := '–ì.';
+      2: Result := '–ü.';
+      3: Result := '–°.';
+      4: Result := '–ü–ì–¢ ';
+      5: Result := '–°–¢-–¶–ê ';
+      6: Result := '–ê–£–õ ';
+      7: Result := '–†–ü ';
     else
       Result := '';
     end;

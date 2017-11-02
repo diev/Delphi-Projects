@@ -182,7 +182,7 @@ begin
       FStream.ReadBuffer(FRecBuffer^, RecSize);
       OemToAnsiBuff(FRecBuffer, FRecBuffer, RecSize);
     except on EReadError do
-      Exception.CreateFmt('Ошибка чтения файла DBF, запись #%d!', [FRecNo]);
+      Exception.CreateFmt('РћС€РёР±РєР° С‡С‚РµРЅРёСЏ С„Р°Р№Р»Р° DBF, Р·Р°РїРёСЃСЊ #%d!', [FRecNo]);
     end;
   end
   else

@@ -34,7 +34,7 @@ function PrintersInfo: AnsiString;
 var
   i: Integer;
 begin
-  Result := 'Программа видит следующие принтеры (* - по умолчанию):'#13#10#13#10;
+  Result := 'РџСЂРѕРіСЂР°РјРјР° РІРёРґРёС‚ СЃР»РµРґСѓСЋС‰РёРµ РїСЂРёРЅС‚РµСЂС‹ (* - РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ):'#13#10#13#10;
   for i := 0 to Printer.Printers.Count - 1 do
   begin
     if (i = Printer.PrinterIndex) then
@@ -47,19 +47,19 @@ end;
 
 procedure ExitInfo(s: AnsiString = '');
 begin
-  Writeln(RDos('Unix-Windows Print - программа графической печати текстов из Банкира'));
-  Writeln(RDos('В качестве параметра требует имя файла для печати'));
-  Writeln(RDos('Вторым параметром может быть указан принтер (номер или имя в 866!)'));
+  Writeln(RDos('Unix-Windows Print - РїСЂРѕРіСЂР°РјРјР° РіСЂР°С„РёС‡РµСЃРєРѕР№ РїРµС‡Р°С‚Рё С‚РµРєСЃС‚РѕРІ РёР· Р‘Р°РЅРєРёСЂР°'));
+  Writeln(RDos('Р’ РєР°С‡РµСЃС‚РІРµ РїР°СЂР°РјРµС‚СЂР° С‚СЂРµР±СѓРµС‚ РёРјСЏ С„Р°Р№Р»Р° РґР»СЏ РїРµС‡Р°С‚Рё'));
+  Writeln(RDos('Р’С‚РѕСЂС‹Рј РїР°СЂР°РјРµС‚СЂРѕРј РјРѕР¶РµС‚ Р±С‹С‚СЊ СѓРєР°Р·Р°РЅ РїСЂРёРЅС‚РµСЂ (РЅРѕРјРµСЂ РёР»Рё РёРјСЏ РІ 866!)'));
   Writeln;
   if Length(s) > 0 then
   begin
-    Writeln(RDos('ОШИБКА:'));
+    Writeln(RDos('РћРЁРР‘РљРђ:'));
     Writeln(RDos(s));
     Writeln;
   end;
   Writeln(PrintersInfo);
   Writeln;
-  //Writeln(RDos('Нажмите Enter для выхода'));
+  //Writeln(RDos('РќР°Р¶РјРёС‚Рµ Enter РґР»СЏ РІС‹С…РѕРґР°'));
   //Readln;
   Halt(0);
 end;
@@ -105,14 +105,14 @@ begin
 
   if Printer.Printers.Count = 0 then
   begin
-    AppendLogMessage('Нет установленных принтеров!');
+    AppendLogMessage('РќРµС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹С… РїСЂРёРЅС‚РµСЂРѕРІ!');
     Halt(1);
   end;
 
   FileName := ParamStr(1);
   if not FileExists(FileName) then
   begin
-    AppendLogMessage('Нет такого файла %s', [FileName]);
+    AppendLogMessage('РќРµС‚ С‚Р°РєРѕРіРѕ С„Р°Р№Р»Р° %s', [FileName]);
     Halt(2);
   end;
 
@@ -126,7 +126,7 @@ begin
         Printer.PrinterIndex := i
       else
       begin
-        AppendLogMessage('Нет принтера с номером %s', [S]);
+        AppendLogMessage('РќРµС‚ РїСЂРёРЅС‚РµСЂР° СЃ РЅРѕРјРµСЂРѕРј %s', [S]);
         Halt(3);
       end;
     end
@@ -135,7 +135,7 @@ begin
       i := Printer.Printers.IndexOf(S);
       if i = -1 then
       begin
-        AppendLogMessage('Нет принтера с именем (в 866) "%s"', [S]);
+        AppendLogMessage('РќРµС‚ РїСЂРёРЅС‚РµСЂР° СЃ РёРјРµРЅРµРј (РІ 866) "%s"', [S]);
         Halt(4);
       end;
       Printer.PrinterIndex := i;
